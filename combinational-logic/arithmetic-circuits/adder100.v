@@ -11,3 +11,7 @@ module top_module(
     assign cout = result[100];
 endmodule
 
+
+// a simpler solution would be to do the following
+// assign {cout, sum} = a + b + cin;
+//
