@@ -42,8 +42,14 @@ module top_module(
 	end
 
 	// output state logic
-	assign walk_left = (state == LEFT);
-	assign walk_right = (state == RIGHT);
-	assign aaah = (state == FALL_L) | (state == FALL_R);
+	always@(*) begin
+		case(state)
+			LEFT: {walk_left, walk_right, aaah}   = 3'b100;
+			RIGHT: {walk_left, walk_right, aaah}  = 3'b010;
+			FALL_L: {walk_left, walk_right, aaah} = 3'b001;
+			FALL_R: {walk_left, walk_right, aaah} = 3'b001;
+			default: {walk_left, walk_right, aaah} = 3'b100;
+		endcase
+	end	
 
 endmodule
