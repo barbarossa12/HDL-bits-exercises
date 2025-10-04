@@ -1,3 +1,4 @@
+// https://hdlbits.01xz.net/wiki/Lemmings3
 module top_module(
     input clk,
     input areset,    // Freshly brainwashed Lemmings walk left.
